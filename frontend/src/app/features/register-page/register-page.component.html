@@ -1,0 +1,134 @@
+<body [style.backgroundImage]="backgroundImage">
+  <div class="container vh-100 d-flex justify-content-center align-items-center">
+    <form
+      [formGroup]="registrationForm"
+      (ngSubmit)="onSubmit()"
+      class="col-md-4 bg-black bg-opacity-75 backdrop-blur p-2 rounded shadow"
+      style="max-width: 400px; font-size: 0.8rem;"
+    >
+      <h2 class="form-title text-center text-white fw-bold mb-3" style="font-size: 1.25rem;">
+        Registration
+      </h2>
+
+      <div class="form-group mb-2">
+        <label for="firstName" class="small">First Name:</label>
+        <input
+          id="firstName"
+          formControlName="firstName"
+          type="text"
+          class="form-control form-control-sm"
+          placeholder="Enter your first name"
+          style="font-size: 0.9rem;"
+        />
+        <div *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched">
+          <small class="text-danger">First name is required.</small>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="lastName" class="small">Last Name:</label>
+        <input
+          id="lastName"
+          formControlName="lastName"
+          type="text"
+          class="form-control form-control-sm"
+          placeholder="Enter your last name"
+          style="font-size: 0.9rem;"
+        />
+        <div *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched">
+          <small class="text-danger">Last name is required.</small>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="phoneNumber" class="small">Phone Number:</label>
+        <input
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          type="tel"
+          class="form-control form-control-sm"
+          placeholder="Enter your phone number"
+          style="font-size: 0.9rem;"
+        />
+        <div *ngIf="registrationForm.get('phoneNumber')?.invalid && registrationForm.get('phoneNumber')?.touched">
+          <small class="text-danger">Phone number is required.</small>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="email" class="small">Email:</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="form-control form-control-sm"
+          placeholder="Enter your email"
+          style="font-size: 0.9rem;"
+        />
+        <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+          <small *ngIf="registrationForm.get('email')?.errors?.['required']" class="text-danger">Email is required.</small>
+          <small *ngIf="registrationForm.get('email')?.errors?.['email']" class="text-danger">Invalid email format.</small>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="password" class="small">Password:</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="form-control form-control-sm"
+          placeholder="Enter your password"
+          style="font-size: 0.9rem;"
+        />
+        <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+          <small class="text-danger">Password is required.</small>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="captcha" class="small">Enter the text for verification:</label>
+        <div class="">
+          <span
+            id="captchaText"
+            class="captcha-text d-block"
+            style="font-size: 1.2rem; line-height: 1; text-align: center;"
+          >
+            {{ captchaText }}
+          </span>
+        </div>
+        <input
+          id="captcha"
+          formControlName="captcha"
+          [(ngModel)]="userCaptcha"
+          type="text"
+          class="form-control form-control-sm"
+          placeholder="Enter the text from the image"
+          style="font-size: 0.8rem; padding: 0.25rem; height: 30px; text-align: center;"
+        />
+        <div *ngIf="registrationForm.get('captcha')?.invalid && registrationForm.get('captcha')?.touched">
+          <small class="text-danger">CAPTCHA is required and must be correct.</small>
+        </div>
+      </div>
+
+      <button
+  type="submit"
+  class="btn btn-block mb-2 fw-medium"
+  [disabled]="registrationForm.invalid"
+  style="background-color: #2f9957; font-size: 0.8rem; padding: 8px 0; width: 100%; border-radius: 4px;"
+>
+  Register
+</button>
+
+
+      <div *ngIf="errorMessage" class="text-danger text-center mt-2">
+        {{ errorMessage }}
+      </div>
+
+      <div class="login-que text-center mt-2">
+        <p class="login-link text-white" style="font-size: 0.9rem;">Already have an account?</p>
+        <a (click)="onLoginPage()" class="link-text" style="cursor: pointer; font-size: 0.9rem;">Log in</a>
+      </div>
+    </form>
+  </div>
+</body>

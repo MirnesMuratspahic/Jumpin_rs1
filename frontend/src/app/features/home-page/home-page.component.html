@@ -1,0 +1,52 @@
+<body>
+  <!-- Navbar -->
+  <app-navbar></app-navbar>
+  <!-- Button for adding ad -->
+  <div class="d-flex justify-content-end p-2">
+    <button class="btn btn-outline-success mx-auto" (click)="addAddLink()">
+      Add Your Ad
+    </button>
+  </div>
+  <!-- Buttons for toggling sections -->
+  <div class="d-flex justify-content-center my-3">
+    <button
+      class="btn btn-outline-success mx-2"
+      (click)="showSection('routes')"
+      [class.active]="currentSection === 'routes'"
+    >
+      Routes
+    </button>
+    <button
+      class="btn btn-outline-success mx-2"
+      (click)="showSection('cars')"
+      [class.active]="currentSection === 'cars'"
+    >
+      Cars
+    </button>
+    <button
+      class="btn btn-outline-success mx-2"
+      (click)="showSection('flats')"
+      [class.active]="currentSection === 'flats'"
+    >
+      Flats
+    </button>
+  </div>
+
+  <!-- Routes Section -->
+  <app-routes
+    *ngIf="currentSection === 'routes'"
+    [apiUrl]="'https://localhost:7172/Route/GetRoutes'"
+  ></app-routes>
+
+  <!-- Cars Section -->
+  <app-cars
+    *ngIf="currentSection === 'cars'"
+    [apiUrl]="'https://localhost:7172/Car/GetCars'"
+  ></app-cars>
+
+  <!-- Flats Section -->
+  <app-flats
+    *ngIf="currentSection === 'flats'"
+    [apiUrl]="'https://localhost:7172/Flat/GetFlats'"
+  ></app-flats>
+</body>

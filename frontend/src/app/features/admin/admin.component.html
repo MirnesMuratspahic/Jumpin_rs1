@@ -1,0 +1,26 @@
+<body>
+  <app-navbar></app-navbar>
+  <h1 class="dashboard-heading text-center mt-4">Admin Dashboard</h1>
+  <div class="chart-container mx-auto my-5">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <div class="boxes-container">
+    <div class="box" style="cursor: pointer;" (click)="navigateToAdminPanel('User')">
+      <h3>Korisnici</h3>
+      <p>{{ usersCount }}</p>
+    </div>
+    <div class="box" style="cursor: pointer;" (click)="navigateToAdminPanel('Route')">
+      <h3>Rute</h3>
+      <p>{{ routesCount }}</p>
+    </div>
+    <div class="box" style="cursor: pointer;" (click)="navigateToAdminPanel('Car')">
+      <h3>Automobili</h3>
+      <p>{{ carsCount }}</p>
+    </div>
+    <div class="box" style="cursor: pointer;" (click)="navigateToAdminPanel('Flat')">
+      <h3>Stanovi</h3>
+      <p>{{ flatsCount }}</p>
+    </div>
+  </div>
+</body>

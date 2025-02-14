@@ -1,0 +1,54 @@
+<body>
+<div class="">
+  <!-- Hero -->
+  <header class="hero-section d-flex align-items-center text-white" @fadeIn>
+    <div class="container text-center">
+      <h1 class="hero-title">Putujte s povjerenjem</h1>
+      <p class="hero-subtitle">
+        Vaš pouzdan partner za gradske avanture, najam i putovanje.
+      </p>
+      <div class="flex justify-content-center align-items-center mt-4">
+        <a href="#footer" class="btn btn-success btn-lg"
+          >Započnite Vaše Putovanje</a
+        >
+        <a href="/login" class="btn btn-outline-light btn-lg mx-2"
+          >Već ste korisnik?</a
+        >
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="about-section py-4 text-center">
+    <div class="container">
+      <h2 class="section-title">Šta nudimo?</h2>
+      <p class="section-subtitle">
+        Jumpin vam nudi jednostavan pregled dostupnih ruta, apartmana i
+        automobila za najam širom svijeta.
+      </p>
+      <div class="row features">
+        <div class="col-md-4 feature" *ngFor="let feature of features">
+          <i [class]="feature.icon + ' icon-large'"></i>
+          <h3 class="feature-title mt-3">{{ feature.title }}</h3>
+          <p class="feature-text">{{ feature.text }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Slide Show -->
+  <div class="">
+    <app-landing-slide-show></app-landing-slide-show>
+  </div>
+  <!-- Footer Section -->
+  <footer id="footer" class="footer-section text-white text-center py-5">
+    <div class="container">
+      <a href="/register" class="btn btn-outline-light btn-lg mx-2"
+        >Pridružite se našoj zajednici</a
+      >
+      <p class="footer-text mb-0">
+        &copy; 2025 Jumpin | Mirnes Muratspahić & Izet Delibašić
+      </p>
+    </div>
+  </footer>
+</div>
+</body>

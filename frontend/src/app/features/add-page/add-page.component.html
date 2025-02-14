@@ -1,0 +1,36 @@
+<body>
+  <!-- Back to Home Button -->
+  <div class="">
+    <button class="btn btn-outline-primary" (click)="goHome()">
+      <i class="fas fa-home"></i>
+      Home
+    </button>
+  </div>
+
+  <!-- Adds Section -->
+  <div class="row">
+    <h2 class="text-center">Submit Your Ad</h2>
+    <div class="d-flex justify-content-center my-3">
+      <button class="btn btn-outline-success mx-2" (click)="showRoutesForm()">
+        Add Route
+      </button>
+      <button class="btn btn-outline-success mx-2" (click)="showCarsForm()">
+        Add Car
+      </button>
+      <button class="btn btn-outline-success mx-2" (click)="showFlatForm()">
+        Add Flat
+      </button>
+    </div>
+
+    <!-- Conditional Forms -->
+    <div *ngIf="selectedForm === 'routes'">
+      <app-route-form></app-route-form>
+    </div>
+    <div *ngIf="selectedForm === 'cars'">
+      <app-cars-form></app-cars-form>
+    </div>
+    <div *ngIf="selectedForm === 'flats'">
+      <app-flat-form></app-flat-form>
+    </div>
+  </div>
+</body>

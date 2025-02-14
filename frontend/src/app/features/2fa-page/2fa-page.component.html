@@ -1,0 +1,54 @@
+<body [style.backgroundImage]="backgroundImage" style="background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; height: 100vh; margin: 0;">
+  <div class="verify-2fa-container">
+    <h2 class="text-center">Two-Factor Authentication</h2>
+    <p class="text-center">Enter the 6-digit code sent to your device:</p>
+  
+    <form (ngSubmit)="onSubmit()" #twoFaForm="ngForm" class="two-fa-form">
+      <div class="form-group">
+        <label for="twoFaCode" class="form-label">Authentication Code</label>
+        <input
+          type="text"
+          id="twoFaCode"
+          name="twoFaCode"
+          class="form-control"
+          maxlength="6"
+          minlength="6"
+          required
+          pattern="[0-9]*"
+          [(ngModel)]="icode"
+          #twoFaCodeInput="ngModel"
+        />
+        <div class="invalid-feedback" *ngIf="twoFaCodeInput.invalid && twoFaCodeInput.touched">
+          <p *ngIf="twoFaCodeInput.errors?.['required']">Code is required.</p>
+          <p *ngIf="twoFaCodeInput.errors?.['minlength'] || twoFaCodeInput.errors?.['maxlength']">
+            Code must be exactly 6 digits.
+          </p>
+          <p *ngIf="twoFaCodeInput.errors?.['pattern']">Code must contain only numbers.</p>
+        </div>
+      </div>
+  
+      <button
+        type="submit"
+        class="btn btn-primary w-100 mt-3"
+        [disabled]="twoFaForm.invalid"
+      >
+        Verify
+      </button>
+    </form>
+
+    <!-- Resend code section -->
+    <div class="mt-3 text-center">
+      <span
+        (click)="onResendCode()"
+        [ngClass]="{ 'text-muted': isResendDisabled, 'text-primary': !isResendDisabled }"
+        [style.cursor]="isResendDisabled ? 'not-allowed' : 'pointer'"
+        style="font-weight: bold; font-size: 0.9rem; text-decoration: underline;"
+      >
+        Resend Code
+      </span>
+      <p *ngIf="isResendDisabled" class="mt-2 text-muted">
+        Resend available in {{ timer }} seconds.
+      </p>
+    </div>
+  </div>
+</body>

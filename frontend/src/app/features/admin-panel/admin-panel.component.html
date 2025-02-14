@@ -1,0 +1,120 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-3">Management</h2>
+    <table *ngIf="type === 'User'" class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Email</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users">
+          <td>{{ item.email }}</td>
+          <td>{{ item.firstName}} {{ item.lastName }}</td>
+          <td>{{ item.status }}</td>
+          <td class="text-center">
+            <button *ngIf="item.status === 'Active'"
+              class="btn btn-danger"  
+              (click)="toggleStatus(0, item)"
+            >
+              Ban
+            </button>
+
+            <button 
+              class="btn btn-success" *ngIf="item.status === 'Banned'"
+              (click)="toggleStatus(1, item)"
+            >
+              Activate
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table *ngIf="type === 'Route'" class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>User Email</th>
+          <th>Route ID</th>
+          <th>Route Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of routes">
+          <td>{{ item.user.email }}</td>
+          <td>{{ item.route.id}}</td>
+          <td>{{ item.route.name}}</td>
+          <td>{{ item.route.description}}</td>
+          <td class="text-center">
+            <button 
+              class="btn btn-danger"  
+              (click)="onDeleteRoute(item.route.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table *ngIf="type === 'Car'" class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>User Email</th>
+          <th>Car ID</th>
+          <th>Car Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cars">
+          <td>{{ item.user.email }}</td>
+          <td>{{ item.car.id}}</td>
+          <td>{{ item.car.name}}</td>
+          <td>{{ item.car.description}}</td>
+          <td class="text-center">
+            <button 
+              class="btn btn-danger"  
+              (click)="onDeleteRoute(item.car.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table *ngIf="type === 'Flat'" class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>User Email</th>
+          <th>Flat ID</th>
+          <th>Flat Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of flats">
+          <td>{{ item.user.email }}</td>
+          <td>{{ item.flat.id}}</td>
+          <td>{{ item.flat.name}}</td>
+          <td>{{ item.flat.description}}</td>
+          <td class="text-center">
+            <button
+              class="btn btn-danger"  
+              (click)="onDeleteRoute(item.flat.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

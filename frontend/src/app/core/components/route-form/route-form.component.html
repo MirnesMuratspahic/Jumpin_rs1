@@ -1,0 +1,216 @@
+<div class="container">
+  <div class="card shadow-lg p-4 mx-auto mt-lg-5" style="max-width: 40rem">
+    <!-- Coordinates Status Section -->
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-outline-primary" (click)="navigateToCoordinates()">
+        Add Coordinates
+      </button>
+      <input
+        type="text"
+        class="form-control form-status"
+        [value]="coordinatesCreated ? 'Created' : ''"
+        readonly
+        placeholder="Status"
+      />
+    </div>
+
+    <form (ngSubmit)="submitNewRoute()" #routeForm="ngForm">
+      <!-- Route Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Route Name</label>
+        <input
+          type="text"
+          id="name"
+          required
+          [(ngModel)]="newRoute.name"
+          [pattern]="'.*\\S.*'"
+          name="name"
+          [maxLength]="30"
+          [minlength]="5"
+          class="form-control"
+          #nameInput="ngModel"
+        />
+        <div
+          *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)"
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="nameInput.errors?.['required']">Name is required.</div>
+          <div *ngIf="nameInput.errors?.['minlength']">
+            Name must be at least 5 characters long.
+          </div>
+        </div>
+      </div>
+
+      <!-- Seats Number -->
+      <div class="mb-3">
+        <label for="seatsNumber" class="form-label">Seats Number</label>
+        <input
+          type="number"
+          id="seatsNumber"
+          required
+          [(ngModel)]="newRoute.seatsNumber"
+          name="seatsNumber"
+          min="1"
+          step="1"
+          class="form-control"
+          #seatsNumberInput="ngModel"
+        />
+        <div
+          *ngIf="
+            seatsNumberInput.invalid &&
+            (seatsNumberInput.dirty || seatsNumberInput.touched)
+          "
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="seatsNumberInput.errors?.['required']">
+            Seats Number is required.
+          </div>
+          <div *ngIf="seatsNumberInput.errors?.['min']">
+            Seats Number must be greater than 0.
+          </div>
+        </div>
+      </div>
+
+      <!-- Date and Time -->
+      <div class="mb-3">
+        <label for="dateAndTime" class="form-label">Date and Time</label>
+        <input
+          type="datetime-local"
+          id="dateAndTime"
+          required
+          [(ngModel)]="newRoute.dateAndTime"
+          name="dateAndTime"
+          class="form-control"
+          #dateAndTimeInput="ngModel"
+        />
+        <div
+          *ngIf="
+            dateAndTimeInput.invalid &&
+            (dateAndTimeInput.dirty || dateAndTimeInput.touched)
+          "
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="dateAndTimeInput.errors?.['required']">
+            Date and Time is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input
+          type="number"
+          id="price"
+          required
+          [(ngModel)]="newRoute.price"
+          name="price"
+          min="1"
+          step="1"
+          class="form-control"
+          #priceInput="ngModel"
+        />
+        <div
+          *ngIf="priceInput.invalid && (priceInput.dirty || priceInput.touched)"
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="priceInput.errors?.['required']">Price is required.</div>
+          <div *ngIf="priceInput.errors?.['min']">
+            Price must be greater than 0.
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          id="description"
+          required
+          [(ngModel)]="newRoute.description"
+          [pattern]="'.*\\S.*'"
+          name="description"
+          maxlength="50"
+          class="form-control"
+          #descriptionInput="ngModel"
+        ></textarea>
+        <div
+          *ngIf="
+            descriptionInput.invalid &&
+            (descriptionInput.dirty || descriptionInput.touched)
+          "
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="descriptionInput.errors?.['required']">
+            Description is required.
+          </div>
+          <div *ngIf="descriptionInput.errors?.['maxlength']">
+            Description cannot exceed 50 characters.
+          </div>
+        </div>
+      </div>
+
+      <!-- Type -->
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+
+        <div class="btn-group w-100" role="group" aria-label="Type selection">
+          <input
+            type="radio"
+            id="passenger"
+            name="type"
+            value="passenger"
+            class="btn-check"
+            [(ngModel)]="newRoute.type"
+            required
+            #passengerInput="ngModel"
+          />
+          <label
+            class="btn btn-outline-primary"
+            for="passenger"
+            [ngClass]="{ active: newRoute.type === 'passenger' }"
+            >Passenger</label
+          >
+
+          <input
+            type="radio"
+            id="package"
+            name="type"
+            value="package"
+            class="btn-check"
+            [(ngModel)]="newRoute.type"
+            required
+            #packageInput="ngModel"
+          />
+          <label
+            class="btn btn-outline-primary"
+            for="package"
+            [ngClass]="{ active: newRoute.type === 'package' }"
+            >Package</label
+          >
+        </div>
+
+        <div
+          *ngIf="
+            passengerInput.invalid &&
+            (passengerInput.dirty || passengerInput.touched)
+          "
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="passengerInput.errors?.['required']">
+            Type is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn btn-primary w-100"
+        [disabled]="routeForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

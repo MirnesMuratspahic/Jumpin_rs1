@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+body {
+  background-color: #f0f9f5;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+.google-map {
+  height: 500px;
+  width: 90%;
+  margin-top: 4rem;
+  border-radius: 12px;
+  border: 2px solid #f0f0f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+}
+
+.d-flex {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+button {
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 0.6rem 1.2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+  box-sizing: border-box;
+}
+
+button.btn-danger {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+
+  &:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+  }
+}
+
+button.btn-success {
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 8px;
+  margin-left: 1rem;
+  padding: 0.6rem 1.2rem;
+
+  &:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+}
+
+button.btn-outline-primary {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #3498db;
+  background-color: transparent;
+  color: #3498db;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease;
+
+  i {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    background-color: #3498db;
+    color: white;
+    border-color: #2980b9;
+    transform: scale(1.05);
+  }
+}
+
+.d-flex {
+  justify-content: center;
+  margin: 2rem 0;
+
+  button {
+    font-weight: lighter;
+    border-radius: 5%;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Responsive Style */
+@media (max-width: 768px) {
+  .google-map {
+    height: 400px;
+  }
+
+  button {
+    width: 35%;
+    padding: 0.7rem;
+    margin: 10px 0;
+  }
+
+  button.btn-success {
+    width: 70%;
+    margin: 0;
+  }
+
+  button.btn-danger {
+    width: 70%;
+  }
+
+  .d-flex {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .google-map {
+    height: 350px;
+  }
+
+  button {
+    padding: 0.6rem 1rem;
+    width: 50%;
+  }
+
+  button.btn-success {
+    width: 70%;
+    margin: 0;
+  }
+
+  button.btn-danger {
+    width: 70%;
+  }
+}

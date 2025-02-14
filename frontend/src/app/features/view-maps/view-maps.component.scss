@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+body {
+  background-color: #f0f9f5;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin: auto;
+  animation: fadeIn 1s ease-in-out;
+  width: 90%;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.route-info {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 700px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.route-info h2 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.route-info p {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.google-map {
+  height: 500px;
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #f0f0f0;
+  background-color: #eaeaea;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+}
+
+button.btn-outline-primary {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+
+  i {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    background-color: #3498db;
+    color: white;
+  }
+}
+
+.d-flex {
+  justify-content: center;
+  margin: 2rem 0;
+
+  button {
+    font-weight: lighter;
+    border-radius: 5%;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .map-container {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .route-info {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .google-map {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .route-info h2 {
+    font-size: 22px;
+  }
+
+  .route-info p {
+    font-size: 16px;
+  }
+
+  .google-map {
+    height: 350px;
+  }
+}

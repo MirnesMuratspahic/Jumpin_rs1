@@ -1,0 +1,227 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$background-color: #f8f9fa;
+$white: #fff;
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
+
+html, body {
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+// Hero Section
+.hero-section {
+  background-image: url("../../../../../public/images/landingImage.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .container {
+    z-index: 2;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .btn-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    &:hover {
+      background-color: $white;
+      color: $primary-color;
+    }
+    transition: color 0.3s ease-out;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+    &:hover {
+      background-color: $white;
+      color: $text-color;
+    }
+    font-family: "Poppins", sans-serif;
+  }
+
+  .btn-success {
+    font-family: "Poppins", sans-serif;
+  }
+
+  // Responsive for smaller screens
+  @media (max-width: 768px) {
+    body{
+      overflow-x: hidden
+    };
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .btn-primary,
+    .btn-outline-light,
+    .btn-success {
+      width: 90%;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+  }
+}
+
+// About Section
+.about-section {
+  background-color: $background-color;
+  padding: 60px 0;
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $text-color;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: adjust($text-color, 20%);
+    margin-bottom: 3rem;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .features {
+    .feature {
+      text-align: center;
+      margin-bottom: 30px;
+
+      .icon-large {
+        font-size: 3rem;
+        color: $secondary-color;
+        margin-bottom: 20px;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .feature-title {
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 15px;
+        color: $text-color;
+        transition: color 0.3s ease-in-out;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .feature-text {
+        font-family: "Poppins", sans-serif;
+      }
+
+      &:hover {
+        .icon-large {
+          color: $text-color;
+        }
+        .feature-title {
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+  // Responsive for smaller screens
+  @media (max-width: 768px) {
+    body{
+      overflow-x: hidden
+    };
+    .features {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .feature {
+        margin-bottom: 20px;
+      }
+
+      .icon-large {
+        font-size: 2rem;
+      }
+
+      .feature-title {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+// Footer Section
+.footer-section {
+  background-color: $secondary-color;
+  padding: 40px 0;
+
+  p {
+    color: $white;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .btn {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .footer-text {
+    font-size: 1rem;
+  }
+
+  // Responsive for smaller screens
+  @media (max-width: 768px) {
+    body{
+      overflow-x: hidden
+    };
+    .footer-text {
+      font-size: 1rem;
+    }
+
+    .btn {
+      width: 90%;
+      margin-bottom: 10px;
+    }
+
+    a {
+      font-size: 1rem;
+    }
+  }
+}

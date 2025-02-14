@@ -1,0 +1,133 @@
+<div class="container py-5">
+  <div class="card shadow-lg p-4 mx-auto" style="max-width: 40rem">
+    <form (ngSubmit)="submitNewCar()" #carForm="ngForm">
+      <!-- Car Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Car Name</label>
+        <input
+          type="text"
+          id="name"
+          required
+          [(ngModel)]="newCar.name"
+          [pattern]="'.*\\S.*'"
+          name="name"
+          class="form-control"
+          #nameInput="ngModel"
+        />
+        <div
+          *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)"
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="nameInput.errors?.['required']">
+            Car name is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Date and Time -->
+      <div class="mb-3">
+        <label for="dateAndTime" class="form-label">Date and Time</label>
+        <input
+          type="datetime-local"
+          id="dateAndTime"
+          required
+          [(ngModel)]="newCar.dateAndTime"
+          name="dateAndTime"
+          class="form-control"
+          #dateAndTimeInput="ngModel"
+        />
+        <div
+          *ngIf="
+            dateAndTimeInput.invalid &&
+            (dateAndTimeInput.dirty || dateAndTimeInput.touched)
+          "
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="dateAndTimeInput.errors?.['required']">
+            Date and Time is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input
+          type="number"
+          id="price"
+          required
+          [(ngModel)]="newCar.price"
+          name="price"
+          min="1"
+          step="1"
+          class="form-control"
+          #priceInput="ngModel"
+        />
+        <div
+          *ngIf="priceInput.invalid && (priceInput.dirty || priceInput.touched)"
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="priceInput.errors?.['required']">Price is required.</div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          id="description"
+          required
+          [(ngModel)]="newCar.description"
+          [pattern]="'.*\\S.*'"
+          name="description"
+          class="form-control"
+          #descriptionInput="ngModel"
+        ></textarea>
+        <div
+          *ngIf="
+            descriptionInput.invalid &&
+            (descriptionInput.dirty || descriptionInput.touched)
+          "
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="descriptionInput.errors?.['required']">
+            Description is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Type -->
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <select
+          id="type"
+          required
+          [(ngModel)]="newCar.type"
+          name="type"
+          class="form-select"
+          #typeInput="ngModel"
+        >
+          <option value="" disabled selected>Select Type</option>
+          <option value="Limousine">Limousine</option>
+          <option value="Van">Van</option>
+          <option value="Truck">Truck</option>
+        </select>
+        <div
+          *ngIf="typeInput.invalid && (typeInput.dirty || typeInput.touched)"
+          class="text-danger small mt-2"
+        >
+          <div *ngIf="typeInput.errors?.['required']">Type is required.</div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn btn-primary w-100"
+        [disabled]="carForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

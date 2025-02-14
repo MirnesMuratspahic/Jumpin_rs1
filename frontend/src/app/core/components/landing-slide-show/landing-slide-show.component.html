@@ -1,0 +1,20 @@
+<div class="slideshow-container my-4">
+  <div class="flex" *ngFor="let slide of slides; let i = index">
+    <div *ngIf="currentSlideIndex === i" class="caption">
+      {{ slide.caption }}
+    </div>
+    <div [ngClass]="{ active: currentSlideIndex === i }" class="slide">
+      <div class="slide-content" *ngIf="currentSlideIndex === i">
+        <img [src]="slide.imageUrl" alt="Slide {{ slide.id }}" />
+      </div>
+      <div class="slide-text" *ngIf="currentSlideIndex === i">
+        <h2>{{ slide.title }}</h2>
+        <p>{{ slide.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <button (click)="prevSlide()" class="prev">❮</button>
+  <button (click)="nextSlide()" class="next">❯</button>
+</div>

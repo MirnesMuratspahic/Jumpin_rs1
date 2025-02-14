@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$secondary-color-light: #38d87d;
+$background-color: #1e1e2f;
+$text-light: #f0f9f5;
+$text-dark: #333;
+
+body {
+  background-color: #f0f9f5;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-label {
+  text-align: left;
+  display: block;
+}
+
+.border-green {
+  border: 3px solid #2ecc71;
+  border-radius: 10px;
+}
+
+.card-1 {
+  width: 30rem;
+  border-radius: 15px;
+  position: relative;
+  background: rgba(31, 31, 58, 0.85);
+  overflow: hidden;
+  color: $text-light;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2),
+    -8px -8px 16px rgba(50, 50, 93, 0.2);
+  text-align: center;
+  backdrop-filter: blur(10px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../public/images/profileBackground.avif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+  }
+}
+
+.image img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 4px solid $secondary-color;
+  transition: transform 0.3s ease;
+}
+
+.image img:hover {
+  transform: scale(1.1);
+}
+
+.card-1 h4 {
+  font-weight: 700;
+  color: $text-light;
+}
+
+.card-1 p {
+  font-size: 0.9rem;
+  color: $text-light;
+  opacity: 0.8;
+}
+
+.card-1 .btn {
+  background-color: $secondary-color;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $secondary-color-light;
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+
+h5 {
+  color: white;
+}
+
+
+.image img {
+  border-radius: 50%;
+}
+
+.phone-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  background-color: white;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #28a745;
+
+  &:hover{
+    background-color: transparent;
+    transition-duration: 0.3s;
+  }
+}
+
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+  }
+  
+  .popup h3 {
+    margin-bottom: 20px;
+  }
+
+  .review-email {
+    font-size: 1.25rem; 
+  }
+
+  @media (max-width: 768px) {
+    .review-email {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 576px) { 
+    .review-email {
+      font-size: 0.875rem;
+    }
+  }
+  
+  .phone-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #28a745;
+  
+    &:hover{
+      background-color: transparent;
+      transition-duration: 0.3s;
+    }
+  }

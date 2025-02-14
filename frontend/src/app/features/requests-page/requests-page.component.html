@@ -1,0 +1,45 @@
+<body>
+  <div class="">
+    <app-navbar> </app-navbar>
+  </div>
+  <div class="row pt-3">
+    <div class="d-flex justify-content-center my-3">
+      <button
+        class="btn btn-outline-success mx-2"
+        (click)="setActiveTab('routes')"
+        [class.active]="activeTab === 'routes'"
+      >
+        Routes
+      </button>
+      <button
+        class="btn btn-outline-success mx-2"
+        (click)="setActiveTab('cars')"
+        [class.active]="activeTab === 'cars'"
+      >
+        Cars
+      </button>
+      <button
+        class="btn btn-outline-success mx-2"
+        (click)="setActiveTab('flats')"
+        [class.active]="activeTab === 'flats'"
+      >
+        Flats
+      </button>
+    </div>
+
+    <!-- Route section -->
+    <div *ngIf="activeTab === 'routes'">
+      <app-route-request></app-route-request>
+    </div>
+
+    <!-- Car section -->
+    <div *ngIf="activeTab === 'cars'">
+      <app-car-request></app-car-request>
+    </div>
+
+    <!-- Flat section -->
+    <div *ngIf="activeTab === 'flats'">
+      <app-flat-request></app-flat-request>
+    </div>
+  </div>
+</body>

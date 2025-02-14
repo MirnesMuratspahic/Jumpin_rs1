@@ -1,0 +1,56 @@
+/* General styles for body */
+body {
+  background-image: url('https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?t=st=1732661354~exp=1732664954~hmac=6d4936e6f9ca507d49718dbf206d773baffd057aff69e08153ca5b77ae64a317&w=1380');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Verify 2FA container */
+.verify-2fa-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for the form container */
+}
+
+/* Header text style */
+.verify-2fa-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Label for form inputs */
+.verify-2fa-container .form-label {
+  font-weight: bold;
+}
+
+/* Invalid feedback message */
+.verify-2fa-container .invalid-feedback {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Timer text styling */
+.verify-2fa-container p {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Styling for resend button timer */
+.verify-2fa-container .mt-3 p {
+  font-size: 0.85rem;
+  color: #6c757d;
+}

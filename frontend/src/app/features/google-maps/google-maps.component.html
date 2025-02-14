@@ -1,0 +1,21 @@
+<body>
+  <button class="btn btn-outline-primary" (click)="goHome()">
+    <i class="fas fa-home"></i>
+    Home
+  </button>
+  <div #googleMap class="google-map mx-auto"></div>
+
+  <!-- Container for buttons -->
+  <div class="d-flex justify-content-center align-items-center mt-3">
+    <div class="text-center">
+      <button class="btn btn-danger" (click)="clearAll()">Clear</button>
+      <button
+        class="btn btn-success"
+        (click)="saveRouteCoordinates()"
+        [disabled]="buttonStatus === false"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,109 @@
+<div class="">
+  <!-- Flats Section -->
+  <div class="row">
+    <main role="main" class="col-12 col-lg-10 offset-lg-1 px-4">
+      <div class="pt-3">
+        <div class="text-center mb-1">
+          <h2>Available Flats</h2>
+        </div>
+
+        <div class="input-group mb-4">
+          <input
+            [(ngModel)]="searchTerm"
+            type="text"
+            class="form-control"
+            placeholder="Search for flat by name"
+            (input)="filterFlats()"
+          />
+          <div
+            class="microphone-icon"
+            (click)="startVoiceSearch()"
+            *ngIf="!isListening"
+          >
+            <i
+              class="fas fa-microphone"
+              style="color: white; font-size: 36px"
+            ></i>
+          </div>
+
+          <div class="dots" *ngIf="isListening">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+        <div *ngIf="flats.length > 0; else noFlats">
+          <div
+            *ngFor="let item of filteredFlats"
+            class="card mb-3"
+            [ngClass]="{ 'vip-flat': item.user.accountType === 'VIP' }"
+          >
+            <div class="card-body px-5">
+              <div class="flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="mb-0">{{ item.flat.id }}</h5>
+                </div>
+                <div class="flex-grow-1 text-center">
+                  <h3 class="card-title">{{ item.flat.name }}</h3>
+                </div>
+              </div>
+              <h5
+                class="text-center mb-3 fw-medium email-link"
+                (click)="navigateToRating(item.user.email)"
+              >
+                {{ item.user.email }}
+              </h5>
+
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column">
+                  <div class="flex justify-content-center">
+                    <span class="text-success me-2 fw-semibold">Price:</span>
+                    <span>{{ item.flat.price | currency }}<br /></span>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <span class="text-black">{{
+                      item.flat.dateAndTime | date : "dd.MM.yyyy | HH:mm"
+                    }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center mt-3">
+                <span class="text-success">{{ item.flat.description }}</span>
+              </div>
+
+              <div class="d-flex justify-content-center mt-2">
+                <div *ngIf="apiUrl === 'https://localhost:7172/Flat/GetFlats'">
+                  <button class="btn btn-success" (click)="sendRequest(item)">
+                    Make a reservation
+                  </button>
+                </div>
+
+                <div
+                  *ngIf="apiUrl === 'https://localhost:7172/Flat/GetUserFlats'"
+                >
+                  <button
+                    class="btn btn-danger me-2"
+                    (click)="onDeleteFlat(item.flat.id)"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    class="btn btn-primary"
+                    (click)="onEditFlat(item.flat.id)"
+                  >
+                    Edit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noFlats>
+          <p class="text-center mt-4">No flats available at the moment.</p>
+        </ng-template>
+      </div>
+    </main>
+  </div>
+</div>

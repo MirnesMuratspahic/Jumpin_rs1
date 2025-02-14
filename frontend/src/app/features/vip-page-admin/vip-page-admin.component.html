@@ -1,0 +1,26 @@
+<div class="upload-container">
+  <h1>VIP Admin Page</h1>
+  <div class="form-group">
+    <label for="file">Choose Image</label>
+    <input
+      type="file"
+      id="file"
+      (change)="onFileSelected($event)"
+      accept=".jpg,.jpeg,.png"
+    />
+  </div>
+
+  <div class="form-group">
+    <button
+      class="upload-button"
+      (click)="uploadImage()"
+      [disabled]="!selectedFile"
+    >
+      Upload
+    </button>
+  </div>
+
+  <div *ngIf="uploadStatus" class="status-message">
+    {{ uploadStatus }}
+  </div>
+</div>

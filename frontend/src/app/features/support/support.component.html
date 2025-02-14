@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<body>
+  <button class="btn btn-outline-primary" (click)="goHome()">
+    <i class="fas fa-home"></i>
+    Home
+  </button>
+  <div class="support-container">
+    <h1>Jumpin - Support</h1>
+    <form (ngSubmit)="sendQuery()" #supportForm="ngForm">
+      <div class="form-group">
+        <label for="question">Your Question:</label>
+        <textarea
+          id="question"
+          [(ngModel)]="userQuery"
+          name="question"
+          rows="4"
+          class="form-control"
+          required
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!supportForm.form.valid"
+      >
+        Submit
+      </button>
+    </form>
+
+    <div class="response-section" *ngIf="aiResponse">
+      <h2>Jumpin-Team Response:</h2>
+      <p>{{ aiResponse }}</p>
+    </div>
+  </div>
+</body>
