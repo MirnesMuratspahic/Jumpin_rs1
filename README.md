@@ -1,8 +1,8 @@
-Jumpin
+#Jumpin
 
 Welcome to Jumpin! This application allows users to publish and book travel routes, cars, and accommodations easily. Users can both list and reserve routes, cars, and accommodations seamlessly.
 
-Features
+#Features
 
 Publish Routes – Users can list their available travel routes.
 
@@ -10,7 +10,7 @@ Book Rides & Stays – Securely reserve cars and accommodations.
 
 User-Friendly Interface – Simple and intuitive design for seamless navigation.
 
-Implemented Features
+#Implemented Features
 
 Implemented payment processing via Stripe API using test credit cards.
 
